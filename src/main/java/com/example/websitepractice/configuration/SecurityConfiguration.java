@@ -36,7 +36,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 			http
 					/* Login configuration */
 					.formLogin()
-					.loginPage("/")
+					.loginPage("/login")
 					.defaultSuccessUrl("/") // user's home page, it can be any URL
 					.permitAll() // Anyone can go to the login page
 					/* Logout configuration */
@@ -46,13 +46,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 					/* Pages that can be viewed without having to log in */
 					.and()
 					.authorizeRequests()
-					.antMatchers("/") // anyone can see the home and the posts pages
+					.antMatchers("/") // anyone can see the home page
 					.permitAll()
-					/* Pages that require authentication */
-					.and()
-					.authorizeRequests()
-					.antMatchers()
-					.authenticated()
 			;
 		}
 	}
