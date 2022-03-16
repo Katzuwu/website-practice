@@ -5,6 +5,23 @@
 	<title>Title</title>
 </head>
 <body>
-This is a test
+	<div><label for="search">Search</label><input id="search"></div>
+	<div id="search-results"></div>
+	<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+	></script>
+	<script src="../static/js/keys.js"></script>
+<script>
+	$.ajax({
+		url: "https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/",
+		headers: {
+			"X-API-Key": BUNGIE_API_KEY
+		}
+	}).done(function(json){
+		console.log(json.response.data.inventoryItem.itemName);
+	});
+</script>
 </body>
 </html>
